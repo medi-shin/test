@@ -66,21 +66,22 @@ public abstract class TestBase {
 	 * running on Device Farm's server. The settings made here will be ignored or may have
 	 * unexpected results.
 	 */
-    DesiredCapabilities capabilities = new DesiredCapabilities();
+        driver = new AndroidDriver<MobileElement>(url, new DesiredCapabilities());
+
+        // for local android
+//	DesiredCapabilities capabilities = new DesiredCapabilities();
 //capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 //capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "8.0.0");
 //capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "SOV34");
 //capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Chrome");
 //driver = new AndroidDriver<MobileElement>(url, capabilities);
 
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.1");
-        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 8");
-
-driver = new IOSDriver<>(url, capabilities);
-
-//         driver = new AndroidDriver<MobileElement>(url, capabilities);
+    // for local ios
+//        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+//        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12.1");
+//        capabilities.setCapability(MobileCapabilityType.BROWSER_NAME, "Safari");
+//        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone 8");
+//driver = new IOSDriver<>(url, capabilities);
 
         //Use a higher value if your mobile elements take time to show up.
         driver.manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
